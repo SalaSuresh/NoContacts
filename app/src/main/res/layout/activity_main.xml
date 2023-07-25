@@ -14,11 +14,21 @@
         android:textAlignment="center"
         android:gravity="center"
         android:textSize="44sp"
-        android:text="Aa"
+        android:text="A"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/imageDemo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
