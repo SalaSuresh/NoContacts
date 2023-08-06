@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_favourites">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.suresh.nocontacts.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_favourites"
+        android:name="com.suresh.nocontacts.ui.favourites.FavouritesFragment"
+        android:label="@string/title_favourites"
+        tools:layout="@layout/fragment_favourites" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.suresh.nocontacts.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_no_contacts"
+        android:name="com.suresh.nocontacts.ui.nocontacts.NoContactsFragment"
+        android:label="@string/title_no_contacts"
+        tools:layout="@layout/fragment_no_contacts" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.suresh.nocontacts.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_calls"
+        android:name="com.suresh.nocontacts.ui.calls.CallsFragment"
+        android:label="@string/title_calls"
+        tools:layout="@layout/fragment_calls" />
 </navigation>

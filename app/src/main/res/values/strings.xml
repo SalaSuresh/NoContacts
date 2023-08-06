@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">NoContacts</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">No Contacts</string>
+    <string name="title_favourites">Favourites</string>
+    <string name="title_no_contacts">No Contacts</string>
+    <string name="title_calls">Calls</string>
 </resources>
