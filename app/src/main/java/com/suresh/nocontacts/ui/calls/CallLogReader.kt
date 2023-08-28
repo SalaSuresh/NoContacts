@@ -1,13 +1,14 @@
-package com.suresh.nocontacts
+package com.suresh.nocontacts.ui.calls
 
 import android.content.Context
 import android.net.Uri
 import android.provider.CallLog
 import android.util.Log
+import com.suresh.nocontacts.model.CallLogRecord
 
 class CallLogReader(private val context: Context) {
-
-    fun readCallLogs() {
+    private val callLogs = ArrayList<CallLogRecord>()
+    fun readCallLogs(): ArrayList<CallLogRecord> {
         val contentResolver = context.contentResolver
         val callLogUri = Uri.parse("content://call_log/calls")
         val cursor = contentResolver.query(callLogUri, null, null, null, null)
@@ -28,9 +29,14 @@ class CallLogReader(private val context: Context) {
                 Log.d("test", "Call type: $type")
                 Log.d("test", "Call date: $date")
                 Log.d("test", "Call duration: $duration")
-            }
 
+                val call =
+                    CallLogRecord(id, number, name, type, date, duration)
+                callLogs.add(call)
+            }
             cursor.close()
         }
+
+        return callLogs
     }
 }

@@ -19,6 +19,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.suresh.nocontacts.databinding.ActivityMainBinding
+import com.suresh.nocontacts.ui.calls.CallLogReader
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,22 +45,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         //        authenticateUser()
-        val hasPermission =
-            ContextCompat.checkSelfPermission(
-                this@MainActivity,
-                android.Manifest.permission.READ_CALL_LOG
-            ) == PackageManager.PERMISSION_GRANTED
-        if (!hasPermission) {
-            // Request the permission
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(android.Manifest.permission.READ_CALL_LOG),
-                1
-            )
-        } else {
-            // We already have the permission
-            CallLogReader(this@MainActivity).readCallLogs()
-        }
+
     }
 
     private fun authenticateUser() {
