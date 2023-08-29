@@ -15,8 +15,10 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.suresh.nocontacts.databinding.FragmentCallsBinding
 import com.suresh.nocontacts.model.CallLogRecord
+import com.suresh.nocontacts.ui.calls.adapters.CallLogsAdapter
 
 class CallsFragment : Fragment() {
 
@@ -81,6 +83,7 @@ class CallsFragment : Fragment() {
     private fun showNoPermissionUI() {
         binding.textNoPermission.visibility = View.VISIBLE
         binding.buttonRequestPermission.visibility = View.VISIBLE
+        binding.recyclerCallLogs.visibility = View.GONE
     }
 
     private fun getCallLogs() {
@@ -91,6 +94,9 @@ class CallsFragment : Fragment() {
     private fun showCallLogsList(callLogs: ArrayList<CallLogRecord>) {
         Log.d("test", "showCallLogsList() called with: callLogs = $callLogs")
         binding.recyclerCallLogs.visibility = View.VISIBLE
+        val callLogsAdapter:CallLogsAdapter = CallLogsAdapter(callLogs)
+        binding.recyclerCallLogs.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerCallLogs.adapter = callLogsAdapter
     }
 
     override fun onDestroyView() {
