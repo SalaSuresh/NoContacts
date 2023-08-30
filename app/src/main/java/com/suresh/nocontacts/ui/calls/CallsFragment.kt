@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -19,8 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.suresh.nocontacts.databinding.FragmentCallsBinding
 import com.suresh.nocontacts.model.CallLogRecord
 import com.suresh.nocontacts.ui.calls.adapters.CallLogsAdapter
+import com.suresh.nocontacts.ui.calls.listener.ItemClickListener
 
-class CallsFragment : Fragment() {
+class CallsFragment : Fragment(), ItemClickListener {
 
     private var _binding: FragmentCallsBinding? = null
 
@@ -93,8 +95,9 @@ class CallsFragment : Fragment() {
 
     private fun showCallLogsList(callLogs: ArrayList<CallLogRecord>) {
         Log.d("test", "showCallLogsList() called with: callLogs = $callLogs")
+        val callLogs = callLogs.asReversed()
         binding.recyclerCallLogs.visibility = View.VISIBLE
-        val callLogsAdapter:CallLogsAdapter = CallLogsAdapter(callLogs)
+        val callLogsAdapter = CallLogsAdapter(callLogs, this)
         binding.recyclerCallLogs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerCallLogs.adapter = callLogsAdapter
     }
@@ -102,5 +105,13 @@ class CallsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onMessageClick(number: String) {
+        Toast.makeText(requireContext(), "$number", Toast.LENGTH_SHORT).show()
+        val uri =
+            Uri.parse("https://api.whatsapp.com/send?phone=$number&text=")
+        val sendIntent = Intent(Intent.ACTION_VIEW, uri)
+        requireContext().startActivity(sendIntent)
     }
 }

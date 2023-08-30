@@ -17,8 +17,6 @@ class CallsViewModel : ViewModel() {
 
     fun readCallLogs(requireActivity: FragmentActivity): ArrayList<CallLogRecord> {
 
-
-
         val hasPermission = ContextCompat.checkSelfPermission(
             requireActivity,
             android.Manifest.permission.READ_CALL_LOG

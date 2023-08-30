@@ -9,17 +9,34 @@
         android:id="@+id/navigation_favourites"
         android:name="com.suresh.nocontacts.ui.favourites.FavouritesFragment"
         android:label="@string/title_favourites"
-        tools:layout="@layout/fragment_favourites" />
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_navigation_favourites_to_newContactFragment"
+            app:destination="@id/newContactFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_no_contacts"
         android:name="com.suresh.nocontacts.ui.nocontacts.NoContactsFragment"
         android:label="@string/title_no_contacts"
-        tools:layout="@layout/fragment_no_contacts" />
+        tools:layout="@layout/fragment_no_contacts" >
+        <action
+            android:id="@+id/action_navigation_no_contacts_to_newContactFragment"
+            app:destination="@id/newContactFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_calls"
         android:name="com.suresh.nocontacts.ui.calls.CallsFragment"
         android:label="@string/title_calls"
-        tools:layout="@layout/fragment_calls" />
+        tools:layout="@layout/fragment_calls" >
+        <action
+            android:id="@+id/action_navigation_calls_to_newContactFragment"
+            app:destination="@id/newContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newContactFragment"
+        android:name="com.suresh.nocontacts.ui.newcontact.NewContactFragment"
+        android:label="fragment_new_contact"
+        tools:layout="@layout/fragment_new_contact" />
 </navigation>
