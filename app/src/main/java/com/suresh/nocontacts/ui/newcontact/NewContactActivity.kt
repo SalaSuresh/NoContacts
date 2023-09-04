@@ -27,6 +27,6 @@ class NewContactActivity : AppCompatActivity() {
         name = binding.editTextName.text.toString()
         number = binding.editTextPhoneNumber.text.toString()
         message = binding.editTextMessage.text.toString()
-        newContactViewModel.saveContact(name, number, message)
+        newContactViewModel.saveContact(this@NewContactActivity, name, number, message)
     }
 }
