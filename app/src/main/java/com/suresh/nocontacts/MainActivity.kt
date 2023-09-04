@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.suresh.nocontacts.databinding.ActivityMainBinding
+import com.suresh.nocontacts.ui.newcontact.NewContactActivity
 
 class MainActivity : AppCompatActivity() {
 
