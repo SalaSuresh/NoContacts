@@ -50,6 +50,7 @@ class NewContactActivity : AppCompatActivity() {
             name,
             number,
             message,
+            false,
             isEditContact
         )
     }

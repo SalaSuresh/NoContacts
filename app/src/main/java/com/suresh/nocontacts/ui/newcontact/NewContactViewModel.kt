@@ -13,6 +13,7 @@ class NewContactViewModel : ViewModel() {
         name: String,
         number: String,
         message: String,
+        isFavourite: Boolean,
         isEditContact: Boolean
     ) {
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(number) || TextUtils.isEmpty(message)) {
