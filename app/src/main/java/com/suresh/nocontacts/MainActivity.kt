@@ -43,12 +43,15 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         binding.fabNewContact.setOnClickListener {
-            Toast.makeText(this, "New Contact", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, NewContactActivity::class.java))
         }
 
-        //        authenticateUser()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        //TODO: Need to add mobile user authentication
+//        authenticateUser()
     }
 
     private fun authenticateUser() {
