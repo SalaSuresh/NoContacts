@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textNumber" />
 
     <ImageView
-        android:id="@+id/imageStar"
+        android:id="@+id/imageWhatsApp"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"

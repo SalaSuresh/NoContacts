@@ -48,16 +48,14 @@
         app:layout_constraintStart_toEndOf="@+id/imageIcon"
         app:layout_constraintTop_toBottomOf="@+id/textNumber" />
 
-    <!--    TODO: Need to add Fav option later -->
     <ImageView
-        android:id="@+id/imageStar"
+        android:id="@+id/imageWhatsApp"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:adjustViewBounds="true"
         android:padding="8dp"
         android:src="@drawable/ic_whatsapp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
