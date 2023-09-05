@@ -16,6 +16,9 @@
         android:theme="@style/Theme.NoContacts"
         tools:targetApi="31">
         <activity
+            android:name=".ui.viewcontact.ViewContactActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.newcontact.NewContactActivity"
             android:exported="false" />
         <activity

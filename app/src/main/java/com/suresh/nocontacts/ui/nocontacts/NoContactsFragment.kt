@@ -1,5 +1,6 @@
 package com.suresh.nocontacts.ui.nocontacts
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.suresh.nocontacts.constants.AppConstants
 import com.suresh.nocontacts.databinding.FragmentNoContactsBinding
 import com.suresh.nocontacts.listeners.ItemClickListener
 import com.suresh.nocontacts.model.Contact
 import com.suresh.nocontacts.ui.nocontacts.adapters.ContactsAdapter
+import com.suresh.nocontacts.ui.viewcontact.ViewContactActivity
 import com.suresh.nocontacts.utils.AppUtils
 
 class NoContactsFragment : Fragment(), ItemClickListener {
@@ -56,6 +59,8 @@ class NoContactsFragment : Fragment(), ItemClickListener {
     }
 
     override fun onItemClick(number: String) {
-
+        val intent = Intent(requireActivity(), ViewContactActivity::class.java)
+        intent.putExtra(AppConstants.KEY_SELECTED_NUMBER, number)
+        startActivity(intent)
     }
 }

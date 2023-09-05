@@ -38,7 +38,6 @@ class AppPreferences(context: Context) {
 
     fun getContact(number: String): Contact? {
         val contactJson = sharedPreference!!.getString(number, "")
-
         return if (TextUtils.isEmpty(contactJson)) {
             null
         } else {
