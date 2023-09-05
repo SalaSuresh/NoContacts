@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.suresh.nocontacts.databinding.FragmentNoContactsBinding
+import com.suresh.nocontacts.listeners.ItemClickListener
 import com.suresh.nocontacts.model.Contact
 import com.suresh.nocontacts.ui.nocontacts.adapters.ContactsAdapter
+import com.suresh.nocontacts.utils.AppUtils
 
-class NoContactsFragment : Fragment() {
+class NoContactsFragment : Fragment(), ItemClickListener {
 
     private var _binding: FragmentNoContactsBinding? = null
     private val binding get() = _binding!!
@@ -38,7 +40,7 @@ class NoContactsFragment : Fragment() {
     }
 
     private fun showContactsList(contacts: ArrayList<Contact>) {
-        val contactsAdapter = ContactsAdapter(contacts)
+        val contactsAdapter = ContactsAdapter(this, contacts)
         binding.recyclerContacts.adapter = contactsAdapter
         binding.recyclerContacts.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -47,5 +49,13 @@ class NoContactsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onMessageClick(number: String) {
+        AppUtils.openContactInWhatsApp(requireContext(), number)
+    }
+
+    override fun onItemClick(number: String) {
+
     }
 }

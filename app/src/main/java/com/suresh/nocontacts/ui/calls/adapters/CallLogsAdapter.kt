@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.suresh.nocontacts.R
 import com.suresh.nocontacts.model.CallLogRecord
-import com.suresh.nocontacts.ui.calls.listener.ItemClickListener
+import com.suresh.nocontacts.listeners.ItemClickListener
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -25,7 +25,7 @@ class CallLogsAdapter(
         private val textNumber: TextView = itemView.findViewById(R.id.textNumber)
         private val textName: TextView = itemView.findViewById(R.id.textName)
         private val textDateAndDuration: TextView = itemView.findViewById(R.id.textMessage)
-        private val imageMessage: ImageView = itemView.findViewById(R.id.imageStar)
+        private val imageWhatsApp: ImageView = itemView.findViewById(R.id.imageWhatsApp)
         fun bindData(callLogRecord: CallLogRecord, itemClickListener: ItemClickListener) {
             textNumber.text = callLogRecord.number
             textName.text =
@@ -36,7 +36,7 @@ class CallLogsAdapter(
                 }
             textDateAndDuration.text =
                 getDate(callLogRecord.date.toLong())
-            imageMessage.setOnClickListener {
+            imageWhatsApp.setOnClickListener {
                 itemClickListener.onMessageClick(callLogRecord.number)
             }
         }

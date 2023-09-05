@@ -8,19 +8,18 @@ import android.content.Intent.FLAG_ACTIVITY_NO_HISTORY
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.suresh.nocontacts.databinding.FragmentCallsBinding
+import com.suresh.nocontacts.listeners.ItemClickListener
 import com.suresh.nocontacts.model.CallLogRecord
 import com.suresh.nocontacts.ui.calls.adapters.CallLogsAdapter
-import com.suresh.nocontacts.ui.calls.listener.ItemClickListener
+import com.suresh.nocontacts.utils.AppUtils
 
 class CallsFragment : Fragment(), ItemClickListener {
 
@@ -94,10 +93,9 @@ class CallsFragment : Fragment(), ItemClickListener {
     }
 
     private fun showCallLogsList(callLogs: ArrayList<CallLogRecord>) {
-        Log.d("test", "showCallLogsList() called with: callLogs = $callLogs")
-        val callLogs = callLogs.asReversed()
+        val reversedCallLogs = callLogs.asReversed()
         binding.recyclerCallLogs.visibility = View.VISIBLE
-        val callLogsAdapter = CallLogsAdapter(callLogs, this)
+        val callLogsAdapter = CallLogsAdapter(reversedCallLogs, this)
         binding.recyclerCallLogs.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerCallLogs.adapter = callLogsAdapter
     }
@@ -108,10 +106,10 @@ class CallsFragment : Fragment(), ItemClickListener {
     }
 
     override fun onMessageClick(number: String) {
-        Toast.makeText(requireContext(), "$number", Toast.LENGTH_SHORT).show()
-        val uri =
-            Uri.parse("https://api.whatsapp.com/send?phone=$number&text=")
-        val sendIntent = Intent(Intent.ACTION_VIEW, uri)
-        requireContext().startActivity(sendIntent)
+        AppUtils.openContactInWhatsApp(requireContext(), number)
+    }
+
+    override fun onItemClick(number: String) {
+        //TODO: No functionality required
     }
 }
