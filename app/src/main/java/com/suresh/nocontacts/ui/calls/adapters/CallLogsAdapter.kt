@@ -24,8 +24,8 @@ class CallLogsAdapter(
     class CallLogsViewHolder(itemView: View) : ViewHolder(itemView) {
         private val textNumber: TextView = itemView.findViewById(R.id.textNumber)
         private val textName: TextView = itemView.findViewById(R.id.textName)
-        private val textDateAndDuration: TextView = itemView.findViewById(R.id.textDateAndDuration)
-        private val imageMessage: ImageView = itemView.findViewById(R.id.imageMessage)
+        private val textDateAndDuration: TextView = itemView.findViewById(R.id.textMessage)
+        private val imageMessage: ImageView = itemView.findViewById(R.id.imageStar)
         fun bindData(callLogRecord: CallLogRecord, itemClickListener: ItemClickListener) {
             textNumber.text = callLogRecord.number
             textName.text =

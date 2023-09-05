@@ -1,13 +1,13 @@
 package com.suresh.nocontacts.ui.nocontacts
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.suresh.nocontacts.model.Contact
+import com.suresh.nocontacts.preferences.AppPreferences
 
 class NoContactsViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is No Contacts Fragment"
+    fun getAllContacts(requireContext: Context): ArrayList<Contact> {
+        return AppPreferences(requireContext).getAllContacts()
     }
-    val text: LiveData<String> = _text
 }
